@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {KeysPipe} from './pipes/KeysToObject';
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -49,12 +49,6 @@
     </div>
   </form>
 
-
-
-
-<div *ngIf="errorMessage.length > 0">
-  no results
-</div>
   <!--show results start-->
 <app-search-results *ngIf="resultList" [data]=resultList></app-search-results>
 </div>
