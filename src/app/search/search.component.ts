@@ -15,15 +15,15 @@ export class SearchComponent implements OnInit {
   public returnCode: string;
   public departureDate: any;
   public returnDate: any;
-  public numberInfants: number;
-  public numberChildren: number;
-  public numberAdults: number;
+  public numberInfants = 0;
+  public numberChildren = 0;
+  public numberAdults  = 1;
   public showResults: boolean;
   options: DatePickerOptions;
-  public googleKey = 'AIzaSyC1vgc1V5gqf9jx_2NmaNjtXPlB5XvKEhc';
+  public googleKey = 'AIzaSyAArdw9SzxOYcDZKUtKbsQxvNmHIUMX4nc';
   public url = 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=';
   public errorMessage = [];
-  public resultList: any;
+  public resultList: any[];
 
   constructor(private flightService: FlightsService) {
     this.options = new DatePickerOptions();
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
   }
   submit(form: any) {
     console.log(form);
-    if (form.dirty) {
+    if (form.valid) {
       this.formValidation();
     }
   }
@@ -70,8 +70,6 @@ export class SearchComponent implements OnInit {
     this.flightService.searchFlights(serverApiCall, payload)
       .subscribe(
       result => this.resultList = result,
-      error => this.errorMessage = <any>error
-      );
-      console.log(this.resultList);
+      error => this.errorMessage = <any>error);
   }
 }

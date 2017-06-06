@@ -1,4 +1,5 @@
 <div class="container">
+
   <form #flightsForm="ngForm">
     <div class="form-group row" >
       <label for="departureCode" class="col-sm-2 col-form-label">Departure Airport Code</label>
@@ -30,7 +31,7 @@
     <div class="form-group row">
       <label for="numberAdults" class="col-sm-2 col-form-label">Number of Adults</label>
       <div class="col-sm-2">
-        <input type="number" required class="form-control" [(ngModel)]="numberAdults" name="numberInfants" placeholder="Number of Adults">
+        <input type="number" required class="form-control" [(ngModel)]="numberAdults" name="numberAdults"  placeholder="Number of Adults">
       </div>
       <label for="returnCode" class="col-sm-2 col-form-label">Number of Children</label>
       <div class="col-sm-2">
@@ -47,6 +48,13 @@
       </div>
     </div>
   </form>
+
+
+
+
+<div *ngIf="errorMessage.length > 0">
+  no results
 </div>
-<!--show results start-->
+  <!--show results start-->
 <app-search-results *ngIf="resultList" [data]=resultList></app-search-results>
+</div>

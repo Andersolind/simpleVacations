@@ -1,7 +1,7 @@
 {
   "name": "simple-vacations",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "Anders Lind",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",

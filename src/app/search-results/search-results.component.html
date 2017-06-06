@@ -1,2 +1,138 @@
 <h2> Flight Results</h2>
-TBD
+<!--start returned results-->
+<div *ngFor="let baseResult of searchResults; let i=index">
+    <section class="col-lg-10">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+                <!--start destination info-->
+                <div class="row">
+                    <div class="col-lg-8" *ngFor="let slice of baseResult.pricing; let i=index">
+                        <label class="col-sm-8 col-form-label">
+                            To  {{slice.fare[0].destination}}
+                            </label>
+
+                        <label class="col-sm-8 col-form-label">
+                          From  {{slice.fare[0].origin}}
+                            </label>
+                    </div>
+                </div>
+                <!--start tax info-->
+                <div class="row">
+                    <label for="from" class="col-sm-6 col-form-label">
+                            Before Tax - {{baseResult.pricing[0].baseFareTotal}}</label>
+
+                    <label for="from" class="col-sm-6 col-form-label">
+                           Tax - {{baseResult.pricing[0].saleTaxTotal}}  </label>
+
+                    <label for="from" class="col-sm-6 col-form-label">
+                             Sale Total - {{baseResult.saleTotal}}</label>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-8">
+            <div class="row" *ngFor="let result of baseResult.slice; let i=index">
+                <div id="products" class="row grid-view">
+                    <div class="col-lg-10">
+                        <div class="card clearfix">
+                            <div class="card-block">
+                                <h4 class="card-title">Other Flight Info / Lay over info</h4>
+                                <div class="row">
+                                    <div class="col-md-10 ">
+                                        <label class="col-sm-6 col-form-label">
+                            Booking Code - {{result.segment[0].bookingCode}}</label>
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Cabin - {{result.segment[0].cabin}}</label>
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Duration of flight - {{result.segment[0].duration}}</label>
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Aircraft - {{result.segment[0].leg[0].aircraft}}</label>
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Departure Time - {{result.segment[0].leg[0].departureTime |  date : 'MMM dd, yyyy h:mm:a'}}</label>
+
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Arrival Time - {{result.segment[0].leg[0].arrivalTime |  date : 'MMM dd, yyyy h:mm:a'}}</label>
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Original Terminal - {{result.segment[0].leg[0].originTerminal}}</label>
+                                        <label for="from" class="col-sm-6 col-form-label">
+                           Destination Terminal - {{result.segment[0].leg[0].destinationTerminal}}</label>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-4">
+                        <div class="card clearfix">
+                            <img class="card-img-top img-fluid" src="http://placehold.it/370x208?text=..." alt="" />
+                            <div class="card-block">
+                                <h4 class="card-title">
+                                    Product title</h4>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            £21.000</p>
+                                    </div>
+                                    <div class="col-xs-6 text-xs-right">
+                                        <p>
+                                            03/03/2016</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--<div class="col-md-4">
+                        <div class="card clearfix">
+                            <img class="card-img-top img-fluid" src="http://placehold.it/370x208?text=..." alt="" />
+                            <div class="card-block">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            £21.000</p>
+                                    </div>
+                                    <div class="col-xs-6 text-xs-right">
+                                        <p>
+                                            03/03/2016</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--<div class="card" style="max-width: 20rem;">
+                        <h3 class="card-header">
+                            Layover information
+                        </h3>
+
+                        <div class="card-block">
+                            <p class="card-text"> 24/7 customer service.</p>
+                        </div>
+                        <div class="card-footer">
+                            Book your flight today!
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+        </div>
+        <!--<a href="#" class="list-group-item list-group-item-action">
+                <div *ngFor="let baseResult of baseResult; let i=index">
+                    <h5>General flight Info </h5>
+                    <small>5th Oct, 2016</small>
+                    <p>Summary</p>
+                </div>
+            </a>-->
+        <!--<a href="#" class="list-group-item list-group-item-action">
+                <div>
+                    <h5>Reccr - The Recommendation Engine</h5>
+                    <small>5th Oct, 2016</small>
+                    <p>Summary</p>
+                </div>
+            </a>-->
+
+    </section>
+</div>
+<div *ngIf="noResults">No results</div>

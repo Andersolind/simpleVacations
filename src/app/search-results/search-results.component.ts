@@ -7,14 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
- @Input()data: any;
- public searchResults: any;
+  @Input() data: any;
+  public searchResults: any[];
+  public noResults: boolean;
   constructor() { }
 
   ngOnInit() {
-    
-    this.searchResults = Object.keys(this.data.trips.tripOption);
-   // console.log(this.data.trips);
+    if (this.searchResults !== undefined) {
+      this.searchResults = null;
+    } else if (this.data.trips.tripOption === null) {
+      this.noResults = true;
+    } else {
+      this.searchResults = this.data.trips.tripOption;
+    }
+
+    console.log('searchResults', this.searchResults);
   }
 
 }
