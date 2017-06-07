@@ -48,7 +48,8 @@
       </div>
     </div>
   </form>
-
+<!--loader-->
+<sk-chasing-dots [isRunning]=showResults></sk-chasing-dots>
   <!--show results start-->
 <app-search-results *ngIf="resultList" [data]=resultList></app-search-results>
 </div>

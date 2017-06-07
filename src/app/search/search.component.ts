@@ -66,10 +66,14 @@ export class SearchComponent implements OnInit {
     }
 
     const serverApiCall = this.url + this.googleKey;
-
+    this.showResults = true;
     this.flightService.searchFlights(serverApiCall, payload)
       .subscribe(
-      result => this.resultList = result,
+      result => this.returnResult(result),
       error => this.errorMessage = <any>error);
+  }
+  returnResult(value: any) {
+    this.resultList = value;
+    this.showResults = false;
   }
 }
